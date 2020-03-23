@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ljb.epaper.pojo">
+	<class name="Paper" table="paper">  <!-- 类名Product 表名product_ -->
+		<id name="name" column="name">    <!--表示属性id,映射表里的字段id  -->
+			<generator class="native"> <!-- 意味着id的自增长方式采用数据库的本地方式 -->
+			</generator>
+		</id>
+		<property name="address" /> <!-- 这里配置的时候，只写了属性name,没有通过column="name" 显式的指定字段，那么字段的名字也是name. -->
+	</class>
+</hibernate-mapping>

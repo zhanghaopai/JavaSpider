@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ljb.epaper.pojo">
+	<class name="Page" table="page">  <!-- 类名Page 表名Page -->
+		<composite-id>
+			<key-property name="name" column="name" ></key-property>
+			<key-property name="time" column="time" ></key-property>
+			<key-property name="page_num" column="page_num" ></key-property>
+		</composite-id>
+		<property name="page_info" /> <!-- 这里配置的时候，只写了属性name,没有通过column="name" 显式的指定字段，那么字段的名字也是name. -->
+		<property name="pdf_url" />
+		<property name="pdf_position" />
+		<property name="png_url" />
+		<property name="png_position" />
+		<property name="html_position" />
+	</class>
+</hibernate-mapping>

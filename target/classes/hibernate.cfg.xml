@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/epaper?characterEncoding=UTF-8</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">AaA19980818</property>
+		
+		
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> <!-- 这表示使用MYSQL方言。 什么方言呢？ 因为在代码层面，开发人员不用关心底层到底用Oracle还是Mysql，写的代码都是一样的。 可是Oracle和Mysql所用的sql语句的语法是有所区别的，那么这件事就交给Hibernate来做了。这个时候就需要告诉Hibernate底层用的是什么数据库，它才知道应该用什么样的“方言” 去对话。 -->
+		<property name="current_session_context_class">thread</property> <!-- 这是Hibernate事务管理方式，即每个线程一个事务 -->
+		<property name="show_sql">true</property> <!-- 这表示是否在控制台显示执行的sql语句 -->
+		<property name="hbm2ddl.auto">update</property> <!-- 这表示是否会自动更新数据库的表结构，有这句话，其实是不需要创建表的，因为Hibernate会自动去创建表结构 -->
+		<mapping resource="com/ljb/epaper/pojo/Paper.hbm.xml" /> <!-- 这表示Hibernate会去识别Product这个实体类 -->
+		<mapping resource="com/ljb/epaper/pojo/Page.hbm.xml" />
+	</session-factory>
+
+</hibernate-configuration>
